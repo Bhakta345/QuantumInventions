@@ -22,11 +22,11 @@ Feature: This feature will check the user rating functionality in One Map websit
   Scenario Outline: Title of your scenario outline
     Given User opens OneMap website
     When Opens rating dialog box
-    Then User shoud be able to input <rating>
-    Then User shoud be able to input <text>
-    Then User shoud be able to input <email>
+    Then User shoud be able to input "<rating>"
+    Then User shoud be able to input "<text>"
+    Then User shoud be able to input "<email>"
 
     Examples: 
-      | rating  | text 				| email  	|
-      | 2 			| test reply  | a@b.com |
-      | 3 			| test reply  | a@c.com |
+      | rating  | text 			   | email   |
+      | two 		| test reply1  | a@b.com |
+      | three 	| test reply2  | c@d.com |

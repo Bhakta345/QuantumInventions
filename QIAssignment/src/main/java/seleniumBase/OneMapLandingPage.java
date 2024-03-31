@@ -1,7 +1,12 @@
 package seleniumBase;
 
+import java.util.List;
+
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.remote.RemoteWebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.FindBys;
 import org.testng.Assert;
 
 import utils.ReadConfigFile;
@@ -13,6 +18,9 @@ public class OneMapLandingPage extends BasePage{
 	public @FindBy(css = "#search_property") WebElement schoolQueryButton;
 	public @FindBy(css = "#search_property") WebElement medicalButton;
 	public @FindBy(css = "#search_property") WebElement hawkerCentresButton;
+	public @FindBy(xpath = "//img[contains(@alt,'expand menu')]") WebElement expandMenuButton;
+	public @FindBy(xpath = "//div[@id='icon-menu-wrapper']/div/p") List<WebElement> allMenuItems;
+	
 	
 	public OneMapLandingPage() {
 		super();
@@ -24,12 +32,6 @@ public class OneMapLandingPage extends BasePage{
 	}
 	
 	public OneMapLandingPage enterSearchText(String text) {
-		try {
-			Thread.sleep(5000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
 		enterText(searchTextBox, "search box", text);
 		return new OneMapLandingPage();
 	}
@@ -55,7 +57,7 @@ public class OneMapLandingPage extends BasePage{
 	}
 	
 	public OneMapLandingPage userRatingDialogBox() {
-		
+
 		return new OneMapLandingPage();
 	}
 	
@@ -65,5 +67,18 @@ public class OneMapLandingPage extends BasePage{
 		return new OneMapLandingPage();
 	}
 	
+	public OneMapLandingPage expandSearchMenuItem() {
+		applicationWait(10);
+		clickElementUsingJS(expandMenuButton, "Expand menu item");
+		return new OneMapLandingPage();
+	}
+	
+	public OneMapLandingPage getMenuItems() {
+		waitUntilElementIsVisible(allMenuItems.get(0), "Menu Items");
+		for(WebElement e : allMenuItems) {
+			System.out.println(e.getText());
+		}
+		return new OneMapLandingPage();
+	}
 
 }
