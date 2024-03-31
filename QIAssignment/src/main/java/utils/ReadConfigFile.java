@@ -42,4 +42,8 @@ public class ReadConfigFile {
 	public String isHeadless() {
 		return prop.getProperty("headless");
 	}
+	
+	public String appURL() {
+		return prop.getProperty("appURL");
+	}
 }

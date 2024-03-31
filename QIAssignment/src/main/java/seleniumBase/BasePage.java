@@ -25,8 +25,31 @@ public class BasePage extends DriverFactory{
 		}
 	}
 	
+	public void enterText(WebElement element, String elementName, String userText) {
+		waitUntilElementIsVisible(element, elementName);
+		/** Clear element before entering text */
+		element.clear();
+		element.sendKeys(userText);	
+		}
+	
 	public void enterTextUsingJavascript(WebElement element, String elementName) {
 		
+	}
+	
+	public void waitUntilElementIsVisible(WebElement element, String elementName) {
+		try {
+		this.wait.until(ExpectedConditions.visibilityOf(element));
+		}catch(Exception e) {
+			Assert.fail("Unable to load " + elementName);
+		}
+	}
+	
+	public void isElementDisplayed(WebElement element, String elementName) {
+		Assert.assertTrue(element.isDisplayed(), elementName + " is not displayed");
+	}
+	
+	public void isElementNotDisplayed(WebElement element, String elementName) {
+		Assert.assertFalse(element.isDisplayed(), elementName + " is displayed");
 	}
 
 }

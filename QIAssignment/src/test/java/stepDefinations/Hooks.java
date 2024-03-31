@@ -14,7 +14,7 @@ public class Hooks extends DriverFactory{
 	@After
 	public void tearDown() {
 		if(driver != null) {
-			driver.manage().deleteAllCookies();
+			//driver.manage().deleteAllCookies();
 			driver.close();
 			driver.quit();
 		}
