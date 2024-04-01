@@ -29,6 +29,7 @@ public class DriverFactory {
 
 			switch (browser.toLowerCase()) {
 			case "chrome":
+				if (driver == null) {
 					ChromeOptions chromeOptions = new ChromeOptions();
 					if (headlessCheck.equals("true")) {
 						chromeOptions.addArguments("--headless");
@@ -37,9 +38,12 @@ public class DriverFactory {
 					driver = new ChromeDriver(chromeOptions);
 					driver.manage().window().maximize();
 					driver.manage().timeouts().pageLoadTimeout(120, TimeUnit.SECONDS);
+
+				}
 				break;
 
 			case "ff":
+				if (driver == null) {
 					FirefoxOptions ffOptions = new FirefoxOptions();
 					if (headlessCheck.equals("true")) {
 						ffOptions.addArguments("-headless");
@@ -48,6 +52,8 @@ public class DriverFactory {
 					driver = new FirefoxDriver(ffOptions);
 					driver.manage().window().maximize();
 					driver.manage().timeouts().pageLoadTimeout(120, TimeUnit.SECONDS);
+
+				}
 				break;
 
 			default:

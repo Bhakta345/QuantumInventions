@@ -1,11 +1,13 @@
 package stepDefinations;
 
+import org.testng.Assert;
+
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import utils.DriverFactory;
 
-public class SampleClass extends DriverFactory {
+public class LandingPageSteps extends DriverFactory {
 
 	@Given("User opens OneMap website")
 	public void user_opens_one_map_website() {

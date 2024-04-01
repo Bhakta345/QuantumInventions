@@ -68,7 +68,7 @@ public class OneMapLandingPage extends BasePage{
 	}
 	
 	public OneMapLandingPage expandSearchMenuItem() {
-		applicationWait(10);
+		//applicationWait(10);
 		clickElementUsingJS(expandMenuButton, "Expand menu item");
 		return new OneMapLandingPage();
 	}

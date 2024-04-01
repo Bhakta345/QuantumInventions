@@ -1,0 +1,9 @@
+Execution from command line
+---------------------------
+*Surefire plugins are implemented in pom.xml to leverage execution from command prompt.
+Steps - 1) Point the execution directory same as the location of pom.xml file
+		2) pom.xml will target the testNG.xml file which contains the runner class
+		
+*Application URL, browser type is defined in config.properties file and values of them can be modified on demand
+
+*
